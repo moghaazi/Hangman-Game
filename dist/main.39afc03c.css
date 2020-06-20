@@ -1,0 +1,294 @@
+body {
+  background-color: #121212;
+  scroll-behavior: smooth;
+  color: white;
+  font: 1em sans-serif;
+  overflow-x: hidden;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+.container {
+  padding: 0 15px;
+}
+
+/* Custom Scroll Bar ============================== */
+:root {
+  scrollbar-color: #666 #222 !important;
+  scrollbar-width: thin !important;
+}
+
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background-color: #222;
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: #666;
+  border-radius: 50px;
+}
+
+.game-cont .game-info {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  height: 50px;
+  margin-top: 20px;
+  background: linear-gradient(to right, #ff9966, #ff5e62);
+  color: #000;
+  font: bold 1.2em sans-serif;
+  border-radius: 3px;
+  padding: 20px;
+}
+.game-cont .game-info span {
+  font-size: 0.8em;
+  letter-spacing: 0.4px;
+  color: #222;
+  font-style: italic;
+}
+.game-cont .row {
+  width: 100%;
+  display: flex;
+  margin-top: 20px;
+}
+.game-cont .row .hangman-drwa {
+  padding: 20px;
+  height: 325px;
+  margin-top: 20px;
+  background: #ffb347;
+  background: linear-gradient(to right, #ffcc33, #ffb347);
+  width: 800px;
+}
+.game-cont .row .hangman-drwa .the-drwa {
+  width: 60px;
+  height: 280px;
+  border-bottom: 4px solid #222;
+  position: relative;
+  margin: auto;
+  display: none;
+}
+.game-cont .row .hangman-drwa .the-drwa .stand {
+  content: "";
+  position: absolute;
+  width: 4px;
+  background-color: #222222;
+  height: 100%;
+  left: 50%;
+  transform: translateX(-50%);
+  display: none;
+}
+.game-cont .row .hangman-drwa .the-drwa .hang {
+  display: none;
+}
+.game-cont .row .hangman-drwa .the-drwa .hang::before {
+  content: "";
+  position: absolute;
+  height: 4px;
+  background-color: #222222;
+  width: 100px;
+  left: 30px;
+  top: 15px;
+}
+.game-cont .row .hangman-drwa .the-drwa .hang::after {
+  content: "";
+  position: absolute;
+  width: 4px;
+  height: 30px;
+  background-color: #222222;
+  left: 130px;
+  top: 15px;
+}
+.game-cont .row .hangman-drwa .the-drwa .rope {
+  position: absolute;
+  border-radius: 50%;
+  width: 60px;
+  height: 60px;
+  left: 103px;
+  top: 45px;
+  border: 2px dashed #222;
+  display: none;
+}
+.game-cont .row .hangman-drwa .the-drwa .head {
+  position: absolute;
+  width: 40px;
+  height: 40px;
+  border: 2px solid #222;
+  border-radius: 50%;
+  left: 112px;
+  top: 58px;
+  display: none;
+}
+.game-cont .row .hangman-drwa .the-drwa .body {
+  position: absolute;
+  height: 144px;
+  width: 4px;
+  background-color: #222222;
+  left: 130px;
+  top: 98px;
+  display: none;
+}
+.game-cont .row .hangman-drwa .the-drwa .hands {
+  display: none;
+}
+.game-cont .row .hangman-drwa .the-drwa .hands::before {
+  content: "";
+  position: absolute;
+  height: 50px;
+  width: 2px;
+  transform: rotate(-131deg);
+  background-color: #222;
+  left: 148px;
+  top: 103px;
+  border-radius: 3px;
+}
+.game-cont .row .hangman-drwa .the-drwa .hands::after {
+  content: "";
+  position: absolute;
+  height: 50px;
+  width: 2px;
+  transform: rotate(131deg);
+  background-color: #222;
+  left: 115px;
+  top: 103px;
+  border-radius: 3px;
+}
+.game-cont .row .hangman-drwa .the-drwa .legs {
+  display: none;
+}
+.game-cont .row .hangman-drwa .the-drwa .legs::before {
+  content: "";
+  position: absolute;
+  height: 50px;
+  width: 2px;
+  transform: rotate(131deg);
+  background-color: #222;
+  left: 148px;
+  top: 228px;
+  border-radius: 3px;
+}
+.game-cont .row .hangman-drwa .the-drwa .legs::after {
+  content: "";
+  position: absolute;
+  height: 50px;
+  width: 2px;
+  transform: rotate(-131deg);
+  background-color: #222;
+  left: 114px;
+  top: 228px;
+  border-radius: 3px;
+}
+.game-cont .row .hangman-drwa.wrong-1 .the-drwa {
+  display: block;
+}
+.game-cont .row .hangman-drwa.wrong-2 .stand {
+  display: block;
+}
+.game-cont .row .hangman-drwa.wrong-3 .hang {
+  display: block;
+}
+.game-cont .row .hangman-drwa.wrong-4 .rope {
+  display: block;
+}
+.game-cont .row .hangman-drwa.wrong-5 .head {
+  display: block;
+}
+.game-cont .row .hangman-drwa.wrong-6 .body {
+  display: block;
+}
+.game-cont .row .hangman-drwa.wrong-7 .hands {
+  display: block;
+}
+.game-cont .row .hangman-drwa.wrong-8 .legs {
+  display: block;
+}
+.game-cont .row .letters {
+  height: 20px;
+  width: 500px;
+  display: flex;
+  justify-content: start;
+  flex-wrap: wrap;
+  margin-left: 20px;
+}
+.game-cont .row .letters .letter-box {
+  background-color: #eee;
+  color: #000;
+  border-radius: 2px;
+  padding: 12px;
+  margin: 9px;
+  cursor: pointer;
+  font: bold 1.3em sans-serif;
+  width: 45px;
+  text-align: center;
+  text-transform: uppercase;
+}
+.game-cont .row .letters .clicked {
+  background-color: #eeeeee73;
+  pointer-events: none;
+}
+.game-cont .row .finshed {
+  pointer-events: none;
+}
+.game-cont .letters-guess {
+  height: 70px;
+  margin-top: 20px;
+  padding: 20px;
+  border-radius: 2px;
+  background-color: peru;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.game-cont .letters-guess span {
+  width: 20px;
+  height: 20px;
+  border-radius: 1px;
+  color: black;
+  padding: 20px;
+  margin: 5px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font: bold 1.3em sans-serif;
+  border-bottom: 4px solid #000;
+  background-color: #ffffffd8;
+  margin-bottom: 5px;
+}
+.game-cont .letters-guess span .has-span {
+  all: unset;
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.game-cont .letters-guess span .has-span::before {
+  content: "";
+  position: absolute;
+  width: 20px;
+  height: 4px;
+  background-color: #222222;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.game-over {
+  width: 100vw;
+  background-color: gold;
+  color: #000;
+  font: bold 5em monospace;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 30px;
+  padding: 20px;
+  overflow: hidden;
+  z-index: 3;
+}
+
+/*# sourceMappingURL=/main.39afc03c.css.map */
